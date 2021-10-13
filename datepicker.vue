@@ -142,8 +142,6 @@
             }
         },
         created(){
-            console.log("x");
-            
             window.addEventListener('scroll', this.handleScroll);
 
             if(typeof this.config.mode !== 'undefined'){
