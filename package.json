@@ -1,5 +1,5 @@
 {
-  "name": "datepicker_generic",
+  "name": "@cheqeeh/datepicker_generic",
   "version": "1.0.0",
   "description": "datepicker motors",
   "main": "index.js",
