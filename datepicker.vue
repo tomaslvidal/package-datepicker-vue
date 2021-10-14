@@ -89,7 +89,7 @@
                             default:
                                 return {};
                         }
-                    })(this.$store.state.Availability.lang.value),
+                    })(this.lang_value),
                     plugins: [new ConfirmDatePlugin({
                         showAlways: false,
                         confirmIcon: "",
