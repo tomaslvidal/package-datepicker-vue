@@ -49,7 +49,12 @@
                 default: () => '',
                 type: String
             },
-            l10n: {
+            lang_value: {
+                default: () => 'en',
+                type: String,
+                required: false
+            },
+            lang_texts: {
                 default: () => new Object(),
                 type: Object,
                 required: false
@@ -63,24 +68,41 @@
             });
         },
         computed:{
-            _config(){
-                let locale = Spanish;
-
-                if(Object.keys(this.l10n).length){
-                    locale = this.l10n;
+            texts(){
+                if(Object.keys(this.lang_texts).length){
+                    return this.lang_texts
                 }
-
+            },
+            _config(){
                 return Object.assign(JSON.parse(JSON.stringify(this.config), (k ,v) => {
                     if(k!=="parameters"){
                         return v;
                     }
                 }),
                 {
-                    locale,
+                    ...(value => {
+                        switch (value) {
+                            case 'es':
+                                return {
+                                    locale: Spanish
+                                };
+                            default:
+                                return {};
+                        }
+                    })(this.$store.state.Availability.lang.value),
                     plugins: [new ConfirmDatePlugin({
                         showAlways: false,
                         confirmIcon: "",
-                        confirmText: "Listo"
+                        ...(value => {
+                            switch (value) {
+                                case 'es':
+                                    return {
+                                        confirmText: this.texts.ok
+                                    };
+                                default:
+                                    return {};
+                            }
+                        })(this.lang_value),
                     })],
                 });
             },
