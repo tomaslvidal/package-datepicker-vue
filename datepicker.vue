@@ -11,7 +11,7 @@
         @on-open="$emit('focusin')"
         @blur="$emit('focusout')"
         @on-day-create="(dObj, dStr, fp, dayElem) => $emit('on-day-create', dObj, dStr, fp, dayElem)"
-        :events=" ['onChange','onDayCreate']"
+        :events=" ['onChange']"
     />
 </template>
 
