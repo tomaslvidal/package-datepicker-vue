@@ -32,6 +32,12 @@
         components: {
             Datepicker,
         },
+        props: {
+            value: {
+                default: () => '',
+                type: [String, Array]
+            }
+        },
         data(){
             return({
                 state: {
