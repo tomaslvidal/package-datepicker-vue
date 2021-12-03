@@ -2,7 +2,7 @@
     <datepicker
         ref="datepicker"
         v-model="model"
-        v-bind="$attrs"
+        v-bind="$props"
         :required="required"
         :config="_config"
         :class="dclass"
@@ -12,6 +12,7 @@
         @blur="$emit('focusout')"
         @on-day-create="(dObj, dStr, fp, dayElem) => $emit('on-day-create', dObj, dStr, fp, dayElem)"
         :events=" ['onChange','onDayCreate']"
+        readonly="readonly"
     />
 </template>
 
@@ -33,9 +34,31 @@
             Datepicker,
         },
         props: {
+            dclass: {
+                default: () => 'form-control',
+                type: [String, Object]
+            },
             value: {
                 default: () => '',
                 type: [String, Array]
+            },
+            config: {
+                default: () => new Object(),
+                type: Object
+            },
+            placeholder: {
+                default: () => '',
+                type: String
+            },
+            lang_value: {
+                default: () => 'en',
+                type: String,
+                required: false
+            },
+            lang_texts: {
+                default: () => new Object(),
+                type: Object,
+                required: false
             }
         },
         data(){
