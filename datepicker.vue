@@ -2,7 +2,7 @@
     <datepicker
         ref="datepicker"
         v-model="model"
-        v-bind="$props"
+        v-bind="props_full"
         :required="required"
         :config="_config"
         :class="dclass"
@@ -69,6 +69,13 @@
             });
         },
         computed:{
+            props_full(){
+                let data = {};
+
+                Object.assign(data, this.$props, this.$attrs.props);
+
+                return data;
+            },
             texts(){
                 if(Object.keys(this.lang_texts).length){
                     return this.lang_texts
