@@ -1,19 +1,24 @@
 {
-  "name": "@cheqeeh/datepicker_generic",
+  "name": "@tomaslvidal/datepicker_generic",
   "version": "1.0.0",
-  "description": "datepicker motors",
+  "description": "datepicker",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cheqeeh/datepicker_generic.git"
+    "url": "git+https://github.com/tomaslvidal/datepicker_generic.git"
   },
-  "author": "cheqeeh",
+  "author": "tomaslvidal",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cheqeeh/datepicker_generic/issues"
+    "url": "https://github.com/tomaslvidal/datepicker_generic/issues"
   },
-  "homepage": "https://github.com/cheqeeh/datepicker_generic#readme"
+  "homepage": "https://github.com/tomaslvidal/datepicker_generic#readme",
+  "dependencies": {
+    "flatpickr": "^4.6.13",
+    "jquery": "^3.7.0",
+    "vue-flatpickr-component": "^11.0.3"
+  }
 }
